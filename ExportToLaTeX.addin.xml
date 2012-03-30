@@ -1,0 +1,21 @@
+<Addin id="ExportToLaTeXAddin"
+	namespace="Tomboy"
+	name="Export to LaTeX"
+	author="Palmar Thorsteinsson"
+	description="Exports notebooks to LaTeX"
+	category="Tools"
+	defaultEnabled="false"
+	version="0.21">
+
+	<Runtime>
+		<Import assembly="TomboyExporter.dll" />
+	</Runtime>
+
+	<Dependencies>
+		<Addin id="Tomboy" version="0.10" />
+	</Dependencies>
+
+	<Extension path="/Tomboy/NoteAddins">
+		<NoteAddin type="Tomboy.ExportToLaTeX.ExportToLaTeXAddin" />
+	</Extension>
+</Addin>

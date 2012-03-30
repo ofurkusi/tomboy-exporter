@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ExportToLaTeXAddinDialog.cs" ctype="Workbench">
+    <Files>
+      <File FileName="ExportToLaTeXAddin.cs" Line="10" Column="1" />
+      <File FileName="ExportToLaTeX.addin.xml" Line="6" Column="18" />
+      <File FileName="ExportToLaTeXAddinDialog.cs" Line="8" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches ctype="PinnedWatchStore" />
+</Properties>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Tomboy exporter</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>Tomboy exporter</h1>
+
+<p>A Tomboy plug-in for exporting notebooks as LaTeX documents</p>
+
+<p>This software is functional but far from perfect. It is free and will remain so for the foreseeable future. No responsibility is taken by the creator for any data loss or damage that this software might cause. Use at your own risk!</p>
+
+<p>The addin is known to work with Tomboy version 1.6</p>
+
+<h2>Instructions</h2>
+
+<ol>
+<li>Download the compressed file containing the .dll</li>
+<li>Copy the .dll file to the appropriate plugin directory (see <a href="https://github.com/mattguo/tomboy-image">here</a>). On Linux the directory should be <code>~/.config/tomboy/addins/</code>.</li>
+<li>Start Tomboy and enable the plugin in the Preferences -&gt; add-in menu.</li>
+<li>In the main window go to Tools -&gt; Export Notebook(s)</li>
+</ol>
+
+<h2>Features</h2>
+
+<ul>
+<li>Allows you to export your notebooks from Tomboy to a LaTeX file for printing or publishing</li>
+<li>The LaTeX file can then be compiled using appropriate software into a .ps or a .pdf file</li>
+<li>Preserves LaTeX formulas (within <code>\[... \]</code> braces) and links between different notes</li>
+<li>Automatically creates an index</li>
+<li>Converts greek characters, such as alpha, beta etc. into the appropriate LaTeX code</li>
+<li>Contains bunch of unfinished and buggy code</li>
+<li>Planned: export to .rtf (Rich Text Format) as well, to open in word processors</li>
+</ul>
+
+<h2>Known issues</h2>
+
+<ul>
+<li>Formatted hyperlinked text causes errors when parsing the outputted LaTeX code (e.g. <code>\hyperlink{\uline{monotonicity}{Monotonicity}}</code> should be <code>\uline{\hyperlink{monotonicity}{Monotonicity}}</code>)</li>
+<li>Tries to work with text inside formulas, treat LaTeX commands as hyperlinks etc.</li>
+<li>May skip some notes within a notebook, probably if an error occurs -&gt; improve error checking?</li>
+<li>The code is far from pretty, it does its job but there is great room for improvements</li>
+</ul>
+
+<h2>Version history</h2>
+
+<h3>Version 0.21 - 30. March 2012</h3>
+
+<ul>
+<li>Changed the name from &#39;Export to LaTeX&#39; to &#39;Tomboy Exporter&#39;</li>
+<li>LaTeX header, updated a little bit, added a dependency needed for proper underline formatting</li>
+<li>Added: support for more greek letters, should now all be parsed correctly</li>
+<li>Added: support for more formatting styles; strikethrough, underline, monospace, small, large, huge (only one missing now is highlighted)</li>
+<li>Added: options to skip hyperlinking &amp; special icelandic language settings</li>
+<li>Added: detects if the output file already exists and warns the user accordingly</li>
+<li>Added: dialog to select a file for the output</li>
+<li>Fixed: does no longer output the BOM mark at the beginning of files (interrupted LaTeX parsing)</li>
+<li>Fixed: console output now goes through the logger</li>
+<li>Fixed: <code>\begin{itemize}</code> should now appear in its own line in the output, not at the end of the previous line</li>
+<li>Fixed: does no longer display the note name both as a latex section name and as part of the main text</li>
+<li>Considerable code cleanup</li>
+</ul>
+
+<h3>Version 0.18 - 27. October 2010</h3>
+
+<ul>
+<li>Removed checkboxes that did not do anything</li>
+<li>Moved to the Tools menu in the main window</li>
+<li>Added the option to select your own filename</li>
+<li>The default LaTeX file header was improved</li>
+<li>Some code cleanup</li>
+</ul>
+
+<h3>Version 0.15 - 14. October 2010</h3>
+
+<ul>
+<li>First version</li>
+</ul>
+
+</body>
+
+</html>
+
